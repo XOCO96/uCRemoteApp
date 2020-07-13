@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                             serialPort.setParity(UsbSerialInterface.PARITY_NONE);
                             serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
                             serialPort.read(mCallBack);
-                            tvAppend(TxVwPantalla, "Serial connection Opened!\n");
+                            tvAppend(TxVwPantalla, "\nSerial connection Opened!\n");
                             Toast.makeText(context, "Serial connection Opened!", Toast.LENGTH_SHORT).show();
                         }else {
                             Log.d("SERIAL", "PORT NOT OPEN");
@@ -190,4 +190,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void onClicklDigital(View view) {
+        String string ="D";
+        serialPort.write(string.getBytes());
+        tvAppend(TxVwPantalla, "\nFunción Digital habilitada. \n");
+    }
 }
