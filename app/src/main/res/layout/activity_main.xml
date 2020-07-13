@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/iB_usbon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
@@ -29,14 +29,14 @@
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:contentDescription="@string/BI_usbon"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/iB_usboff"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txvw_about"
         app:srcCompat="@mipmap/usb" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/iB_borrador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -45,26 +45,26 @@
         android:contentDescription="@string/BI_clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/iB_usboff"
         app:layout_constraintTop_toBottomOf="@+id/txvw_about"
         app:srcCompat="@mipmap/borrar" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/iB_usboff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:contentDescription="@string/BI_usboff"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/iB_borrador"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/iB_usbon"
         app:layout_constraintTop_toBottomOf="@+id/txvw_about"
         app:srcCompat="@mipmap/usboff" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/iB_digital"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -72,35 +72,35 @@
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_led"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/iB_usbon"
         app:srcCompat="@mipmap/ledon" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/iB_analog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_pote"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/iB_digital"
+        app:layout_constraintTop_toBottomOf="@+id/iB_usboff"
         app:srcCompat="@mipmap/poteon" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/iB_timer"
         android:layout_width="74dp"
         android:layout_height="69dp"
         android:layout_marginStart="22dp"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_reloj"
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/iB_analog"
+        app:layout_constraintTop_toBottomOf="@+id/iB_usboff"
         app:srcCompat="@mipmap/timeron" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/iB_puert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -109,12 +109,12 @@
         android:contentDescription="@string/BI_boton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.195"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/iB_timer"
+        app:layout_constraintTop_toBottomOf="@+id/iB_borrador"
         app:srcCompat="@mipmap/intpueron" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tV_display"
         android:layout_width="318dp"
         android:layout_height="159dp"
         android:gravity="bottom"
@@ -124,5 +124,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+        app:layout_constraintTop_toBottomOf="@+id/iB_puert" />
 </androidx.constraintlayout.widget.ConstraintLayout>
