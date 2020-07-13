@@ -99,6 +99,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_reloj"
+        android:onClick="onClickTimer"
         app:layout_constraintStart_toEndOf="@+id/iB_analog"
         app:layout_constraintTop_toBottomOf="@+id/iB_usboff"
         app:srcCompat="@mipmap/timeron" />

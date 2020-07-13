@@ -195,4 +195,10 @@ public class MainActivity extends AppCompatActivity {
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nFunción Digital habilitada. \n");
     }
+
+    public void onClickTimer(View view) {
+        String string ="R";
+        serialPort.write(string.getBytes());
+        tvAppend(TxVwPantalla, "\nFunción de Timer habilitada. \n");
+    }
 }
