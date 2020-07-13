@@ -9,4 +9,5 @@
     <string name="BI_boton">Puerto</string>
     <string name="BI_clear">Borra</string>
     <string name="tv_terminal">Esperando Instrucciones.</string>
+    <string name="btn_back">Regresar</string>
 </resources>
