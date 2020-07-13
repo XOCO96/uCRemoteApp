@@ -112,6 +112,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_boton"
+        android:onClick="onClickPuerto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toEndOf="@+id/iB_timer"

@@ -201,4 +201,10 @@ public class MainActivity extends AppCompatActivity {
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nFunción de Timer habilitada. \n");
     }
+
+    public void onClickPuerto(View view) {
+        String string ="P";
+        serialPort.write(string.getBytes());
+        tvAppend(TxVwPantalla, "\nInterrupción por Puerto habilitada. \n");
+    }
 }
