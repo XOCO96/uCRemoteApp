@@ -209,8 +209,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickAnalog(View view) {
-        String string ="A";
+        /*String string ="A";
         serialPort.write(string.getBytes());
-        tvAppend(TxVwPantalla, "\nFunción Analógica habilitada. \n");
+        tvAppend(TxVwPantalla, "\nFunción Analógica habilitada. \n");*/
+        Intent actGrafica = new Intent(this,AnalografActivity.class);
+        startActivity(actGrafica);
     }
 }
