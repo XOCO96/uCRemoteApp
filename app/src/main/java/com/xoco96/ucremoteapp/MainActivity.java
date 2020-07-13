@@ -207,4 +207,10 @@ public class MainActivity extends AppCompatActivity {
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nInterrupción por Puerto habilitada. \n");
     }
+
+    public void onClickAnalog(View view) {
+        String string ="A";
+        serialPort.write(string.getBytes());
+        tvAppend(TxVwPantalla, "\nFunción Analógica habilitada. \n");
+    }
 }

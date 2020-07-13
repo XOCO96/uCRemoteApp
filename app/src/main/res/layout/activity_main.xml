@@ -87,6 +87,7 @@
         android:layout_marginLeft="21dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/BI_pote"
+        android:onClick="onClickAnalog"
         app:layout_constraintStart_toEndOf="@+id/iB_digital"
         app:layout_constraintTop_toBottomOf="@+id/iB_usboff"
         app:srcCompat="@mipmap/poteon" />
