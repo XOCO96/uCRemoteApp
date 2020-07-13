@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/hellocharts-library-1.5.8" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
