@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">uCRemoteApp</string>
+    <string name="txVw_about">Aplicacion para la interacción entre un uC y un dispositivo móvil.</string>
+    <string name="BI_usbon">Iniciar</string>
+    <string name="BI_usboff">Detener</string>
+    <string name="BI_led">Digital</string>
+    <string name="BI_pote">Analógico</string>
+    <string name="BI_reloj">Timer</string>
+    <string name="BI_boton">Puerto</string>
+    <string name="BI_clear">Borra</string>
+    <string name="tv_terminal">Esperando Instrucciones.</string>
 </resources>
