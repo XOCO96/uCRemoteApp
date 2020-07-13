@@ -5,3 +5,4 @@
 - Puertos E/S Digitales
 - Interrupción: Timer
 - Interrupción: Puerto
+- Puertos Analógicos
