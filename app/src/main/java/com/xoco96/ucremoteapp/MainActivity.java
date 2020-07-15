@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
             //TxVwPantalla.setText("Guardado correctamente");
             tvAppend(TxVwPantalla, "\nGuardado correctamente. \n");
 
-            //Graficar();
+            Graficar();
             //Intent actGrafica = new Intent(this,AnalografActivity.class);
             //startActivity(actGrafica);
         }catch (IOException e){
@@ -278,9 +278,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*public void Graficar(){
+    public void Graficar(){
         Intent actGrafica = new Intent(this,AnalografActivity.class);
         startActivity(actGrafica);
-    }*/
+        //Intent bhnj = new Intent(getApplicationContext(),AnalografActivity.class);
+    }
 
 }

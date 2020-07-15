@@ -62,6 +62,7 @@ public class AnalografActivity extends AppCompatActivity {
             //edtx_contenido.setText(contenidoCompleto);
         }catch (IOException e){
             Toast.makeText(this,"Error al leer el arvhivo", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
 
 
@@ -83,8 +84,8 @@ public class AnalografActivity extends AppCompatActivity {
             yAxisValues.add(new PointValue(i, yAxisData[i]));
         }*/
         for (int i = 0; i < yAxisData.length; i++) {
-            //yAxisValues.add(new PointValue(i, yAxisData[i]));
-            yAxisValues.set(i, new PointValue(i, yAxisData[i]));
+            yAxisValues.add(new PointValue(i, yAxisData[i]));
+            //yAxisValues.set(i, new PointValue(i, yAxisData[i]));
         }
 
         List lines = new ArrayList();
