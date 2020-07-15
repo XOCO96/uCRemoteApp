@@ -2,6 +2,7 @@ package com.xoco96.ucremoteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +27,9 @@ import android.widget.Toast;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,11 +44,13 @@ public class MainActivity extends AppCompatActivity {
     UsbSerialDevice serialPort;
     UsbDeviceConnection connection;
 
+    int ig = 0;
+
     //EditText TextEntrada;
     //Button BtnIniciar, BtnEnviar, BtnDetener, BtnBorrar;
     ImageButton BtnIniciar, BtnDetener, BtnBorrar, BtnDigital, BtnAnalog, BtnTimer, BtnPuerto;
     TextView TxVwPantalla;
-
+    boolean grafView = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,12 +150,25 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceivedData(byte[] arg0){
             String data = null;
+            //int ig = 0;
             try {
+                //int i= 0;
+                //Toast.makeText(getApplicationContext(),"Try de mcallback", Toast.LENGTH_SHORT).show(); //causa error en la ejecucion este toasd
                 data = new String(arg0, "UTF-8");
                 data.concat("\n");
                 tvAppend(TxVwPantalla, data);
+                if (grafView){
+                    ig++;
+                }
+
             }catch (UnsupportedEncodingException e){
                 e.printStackTrace();
+            }
+            if (grafView & ig==10){ //falta habilitar que se ejecute a los 10 datos
+            //if (grafView ){ //falta habilitar que se ejecute a los 10 datos
+                grafView = false;
+                ig=0;
+                guardarDatos();
             }
         }
     };
@@ -194,25 +214,73 @@ public class MainActivity extends AppCompatActivity {
         String string ="D";
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nFunción Digital habilitada. \n");
+
+        grafView = false;
     }
 
     public void onClickTimer(View view) {
         String string ="R";
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nFunción de Timer habilitada. \n");
+
+        grafView = false;
     }
 
     public void onClickPuerto(View view) {
         String string ="P";
         serialPort.write(string.getBytes());
         tvAppend(TxVwPantalla, "\nInterrupción por Puerto habilitada. \n");
+
+        grafView = false;
     }
 
     public void onClickAnalog(View view) {
-        /*String string ="A";
+        String string ="A";
+        tvAppend(TxVwPantalla, "\nFunción Analógica habilitada. \n");
+        TxVwPantalla.setText("");
         serialPort.write(string.getBytes());
-        tvAppend(TxVwPantalla, "\nFunción Analógica habilitada. \n");*/
+        //Intent actGrafica = new Intent(this,AnalografActivity.class);
+        //startActivity(actGrafica);
+        grafView = true;
+        ig=0;
+    }
+
+
+    public void guardarDatos(){
+
+        String nombre = "prueba";
+        String contenido = TxVwPantalla.getText().toString();
+
+        try {
+            File tarjetaSD = Environment.getDataDirectory();
+            //Toast.makeText(getApplicationContext(),tarjetaSD.getPath(), Toast.LENGTH_SHORT).show();
+            File rutaarchivo = new File(tarjetaSD.getPath(), nombre);
+
+            OutputStreamWriter crearArchivo = new OutputStreamWriter(openFileOutput(nombre, Activity.MODE_PRIVATE));
+
+            crearArchivo.write(contenido);
+            crearArchivo.flush();
+            crearArchivo.close();
+
+            //Toast.makeText(this,"Guardado correctamente", Toast.LENGTH_SHORT).show();
+            //edtx_nombre.setText("");
+            //TxVwPantalla.setText("Guardado correctamente");
+            tvAppend(TxVwPantalla, "\nGuardado correctamente. \n");
+
+            //Graficar();
+            //Intent actGrafica = new Intent(this,AnalografActivity.class);
+            //startActivity(actGrafica);
+        }catch (IOException e){
+            //Toast.makeText(this,"No se pudo guardar", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
+    }
+
+
+    /*public void Graficar(){
         Intent actGrafica = new Intent(this,AnalografActivity.class);
         startActivity(actGrafica);
-    }
+    }*/
+
 }

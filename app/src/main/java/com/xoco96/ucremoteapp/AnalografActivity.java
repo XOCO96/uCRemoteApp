@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 
 import lecho.lib.hellocharts.model.Axis;
@@ -14,6 +15,12 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import android.graphics.Color;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +28,44 @@ public class AnalografActivity extends AppCompatActivity {
 
 
     LineChartView lineChartView;
-    String[] axisData = {"a", "b", "c", "d", "e", "f", "g", "h", "i",
-            "j", "k", "l"};
-    int[] yAxisData = {50, 20, 15, 30, 20, 60, 15, 40, 45, 10, 90, 18};
+    String[] axisData = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    int[] yAxisData = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    //List yAxisValues = new ArrayList();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analograf);
+
+        //_--------------------------------------------
+        String nombre = "prueba";
+
+        try {
+            File tarjetaSD = Environment.getDataDirectory();
+            File rutaarchivo = new File(tarjetaSD.getPath(), nombre);
+            InputStreamReader abrirArvhivo = new InputStreamReader(openFileInput(nombre));
+
+            BufferedReader leerArchivo = new BufferedReader(abrirArvhivo);
+            String linea = leerArchivo.readLine();
+            //String contenidoCompleto = "";
+            int i = 0;
+            while (linea != null){
+                yAxisData[i] = Integer.parseInt(linea);
+                //contenidoCompleto = contenidoCompleto + linea + "\n";
+                linea = leerArchivo.readLine();
+                i++;
+            }
+            leerArchivo.close();
+            abrirArvhivo.close();
+            //edtx_contenido.setText(contenidoCompleto);
+        }catch (IOException e){
+            Toast.makeText(this,"Error al leer el arvhivo", Toast.LENGTH_SHORT).show();
+        }
+
+
+        //---------------------------------------------
 
         lineChartView = findViewById(R.id.chart);
 
@@ -43,8 +79,12 @@ public class AnalografActivity extends AppCompatActivity {
             axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
         }
 
-        for (int i = 0; i < yAxisData.length; i++) {
+        /*for (int i = 0; i < yAxisData.length; i++) {
             yAxisValues.add(new PointValue(i, yAxisData[i]));
+        }*/
+        for (int i = 0; i < yAxisData.length; i++) {
+            //yAxisValues.add(new PointValue(i, yAxisData[i]));
+            yAxisValues.set(i, new PointValue(i, yAxisData[i]));
         }
 
         List lines = new ArrayList();
@@ -67,7 +107,7 @@ public class AnalografActivity extends AppCompatActivity {
 
         lineChartView.setLineChartData(data);
         Viewport viewport = new Viewport(lineChartView.getMaximumViewport());
-        viewport.top = 110;
+        viewport.top = 1100;
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);
 
@@ -75,6 +115,7 @@ public class AnalografActivity extends AppCompatActivity {
 
     public void onClickBack(View view) {
         Intent backHome = new Intent(this,MainActivity.class);
-        startActivity(backHome);
+        //startActivity(backHome);
+        finish();
     }
 }
