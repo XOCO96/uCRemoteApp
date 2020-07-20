@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             }catch (UnsupportedEncodingException e){
                 e.printStackTrace();
             }
-            if (grafView & ig==10){ //falta habilitar que se ejecute a los 10 datos
+            if (grafView & ig==50){ //falta habilitar que se ejecute a los 10 datos
             //if (grafView ){ //falta habilitar que se ejecute a los 10 datos
                 grafView = false;
                 ig=0;
