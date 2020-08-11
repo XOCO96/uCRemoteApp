@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             for (Map.Entry<String, UsbDevice>entry:usbDevices.entrySet()){
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
-                if(deviceVID == 6790)// Arduino Vendor ID
+                if(deviceVID == 6790 || deviceVID == 1659)// Arduino Vendor ID
                 //if(deviceVID == 0x2341)// Arduino Vendor ID
                 {
                     PendingIntent pi = PendingIntent.getBroadcast(this,0, new Intent(ACTION_USB_PERMISSION),0);
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             }catch (UnsupportedEncodingException e){
                 e.printStackTrace();
             }
-            if (grafView & ig==50){ //falta habilitar que se ejecute a los 10 datos
+            if (grafView & ig==100){ //falta habilitar que se ejecute a los 10 datos
             //if (grafView ){ //falta habilitar que se ejecute a los 10 datos
                 grafView = false;
                 ig=0;
