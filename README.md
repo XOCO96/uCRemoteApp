@@ -17,3 +17,4 @@ Después se almacena en un archivo en la memoria del móvil, al terminar la lect
 ![Grafica](https://i.imgur.com/z42KLyD.jpg)
 
 **Nota:** _La gráfica de ejemplo muestra valores aleatoreos recibidos  del uC con conexiones al aire._
+**Nota2:** _Prueba de re-sincronización._
